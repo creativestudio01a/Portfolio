@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: #1463ff;
+  color: #ffffff;
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-28;
+  }
+
+  .section-kicker {
+    @apply text-sm font-semibold uppercase tracking-[0.22em] text-signal;
+  }
+
+  .label-pill {
+    @apply inline-flex h-9 items-center border px-3 text-xs font-semibold uppercase tracking-[0.16em];
+  }
+
+  .btn-primary {
+    @apply inline-flex h-12 items-center gap-2 border border-signal bg-signal px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#0d50d6] focus:outline-none focus:ring-2 focus:ring-signal focus:ring-offset-2 focus:ring-offset-paper dark:focus:ring-offset-neutral-950;
+  }
+
+  .btn-secondary {
+    @apply inline-flex h-12 items-center gap-2 border border-ink bg-transparent px-5 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:bg-ink hover:text-white focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-paper dark:border-neutral-700 dark:text-neutral-50 dark:hover:bg-neutral-100 dark:hover:text-neutral-950 dark:focus:ring-offset-neutral-950;
+  }
+
+  .btn-inverted {
+    @apply inline-flex h-12 items-center justify-center gap-2 border border-white bg-white px-5 text-sm font-semibold text-signal transition hover:-translate-y-0.5 hover:bg-transparent hover:text-white;
+  }
+
+  .btn-ghost-light {
+    @apply inline-flex h-12 items-center justify-center gap-2 border border-white/45 bg-transparent px-5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-signal;
+  }
+
+  .icon-button {
+    @apply grid size-10 place-items-center border border-line bg-white text-ink transition hover:border-signal hover:text-signal dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-50;
+  }
+
+  .nav-link {
+    @apply px-3 py-2 text-sm font-medium text-muted transition hover:text-signal dark:text-neutral-400 dark:hover:text-signal;
+  }
+
+  .nav-link-active {
+    @apply text-signal;
+  }
+
+  .mobile-menu {
+    @apply overflow-hidden transition-[max-height] duration-300;
+    background: rgb(246 245 241 / 0.96);
+  }
+
+  .dark .mobile-menu {
+    background: rgb(10 10 10 / 0.96);
+  }
+
+  .mobile-link {
+    @apply block border border-transparent px-3 py-3 text-base font-semibold text-muted transition hover:border-line hover:text-signal dark:text-neutral-300 dark:hover:border-neutral-800;
+  }
+
+  .mobile-link-active {
+    @apply border-line text-signal dark:border-neutral-800;
+  }
+
+  .hero-visual {
+    @apply grid gap-3;
+  }
+
+  .profile-showcase {
+    @apply min-h-[36rem] border border-line bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6;
+  }
+
+  .profile-focus-panel {
+    @apply border border-line bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900;
+  }
+
+  .project-mockup {
+    @apply aspect-[1.2/1] border border-line bg-paper p-4 dark:border-neutral-800 dark:bg-neutral-950;
+  }
+
+  .skill-tag {
+    @apply inline-flex border border-line bg-paper px-3 py-1.5 text-sm font-medium text-muted dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300;
+  }
+
+  .contact-form {
+    @apply space-y-4 border border-line bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
