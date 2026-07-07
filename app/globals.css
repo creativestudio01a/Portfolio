@@ -93,15 +93,50 @@ body {
   }
 
   .profile-showcase {
-    @apply min-h-[36rem] border border-line bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900 sm:p-6;
+    @apply border border-line bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900 sm:p-5;
+  }
+
+  .profile-photo-frame {
+    @apply relative overflow-hidden border border-line bg-paper dark:border-neutral-800 dark:bg-neutral-950;
+    aspect-ratio: 4 / 5;
+  }
+
+  .profile-photo {
+    @apply h-full w-full object-cover object-top;
   }
 
   .profile-focus-panel {
     @apply border border-line bg-white p-5 dark:border-neutral-800 dark:bg-neutral-900;
   }
 
+  .project-media {
+    @apply relative overflow-hidden border border-line bg-paper dark:border-neutral-800 dark:bg-neutral-950;
+    aspect-ratio: 1.2 / 1;
+  }
+
+  .project-media-image {
+    @apply h-full w-full object-cover;
+  }
+
   .project-mockup {
     @apply aspect-[1.2/1] border border-line bg-paper p-4 dark:border-neutral-800 dark:bg-neutral-950;
+  }
+
+  .experience-evidence-box {
+    @apply mt-5 grid gap-3 border border-line bg-white p-3 dark:border-neutral-800 dark:bg-neutral-900 sm:grid-cols-2;
+  }
+
+  .experience-media-item {
+    @apply relative overflow-hidden border border-line bg-paper dark:border-neutral-800 dark:bg-neutral-950;
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .certificate-media-item {
+    aspect-ratio: 3 / 4;
+  }
+
+  .experience-media-image {
+    @apply h-full w-full object-contain p-3;
   }
 
   .skill-tag {

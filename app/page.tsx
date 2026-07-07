@@ -1,6 +1,7 @@
 "use client";
 
 import { type ComponentType, type FormEvent, useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -49,6 +50,12 @@ const fadeIn = {
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.55, ease: "easeOut" }
 } as const;
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function assetSrc(src: string) {
+  return `${basePath}${src}`;
+}
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -174,23 +181,31 @@ export default function Home() {
 
           <motion.div {...fadeIn} transition={{ ...fadeIn.transition, delay: 0.12 }} className="hero-visual">
             <div className="profile-showcase">
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-muted dark:text-neutral-400">
-                  Portfolio Snapshot
-                </span>
-                <span className="grid size-12 place-items-center border border-ink bg-white text-sm font-bold text-signal dark:border-neutral-700 dark:bg-neutral-950">
+              <div className="profile-photo-frame">
+                <Image
+                  src={assetSrc(profile.image.src)}
+                  alt={profile.image.alt}
+                  width={900}
+                  height={1200}
+                  priority
+                  className="profile-photo"
+                />
+              </div>
+
+              <div className="mt-5 flex items-end justify-between gap-4 border-t border-line pt-5 dark:border-neutral-800">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-muted dark:text-neutral-400">
+                    Portfolio Snapshot
+                  </span>
+                  <p className="mt-2 text-3xl font-semibold leading-none tracking-normal">{profile.name}</p>
+                  <p className="mt-3 max-w-md text-sm leading-6 text-muted dark:text-neutral-300">{profile.title}</p>
+                </div>
+                <span className="grid size-12 shrink-0 place-items-center border border-ink bg-white text-sm font-bold text-signal dark:border-neutral-700 dark:bg-neutral-950">
                   PZ
                 </span>
               </div>
 
-              <div className="mt-12 space-y-5">
-                <p className="text-[clamp(3.2rem,8vw,6rem)] font-semibold leading-none tracking-normal text-ink dark:text-neutral-50">
-                  Pyae Zaw
-                </p>
-                <p className="max-w-md text-lg leading-8 text-muted dark:text-neutral-300">{profile.title}</p>
-              </div>
-
-              <div className="mt-10 grid gap-3">
+              <div className="mt-5 grid gap-3">
                 {["Content writing", "AI content creation", "Digital marketing", "Video production"].map((item) => (
                   <div
                     key={item}
@@ -611,32 +626,46 @@ function ServiceCard({
 }
 
 function ProjectCard({ index, project }: { index: number; project: (typeof projects)[number] }) {
+  const image = "image" in project ? project.image : undefined;
+
   return (
     <motion.article
       {...fadeIn}
       transition={{ ...fadeIn.transition, delay: index * 0.04 }}
       className="group border border-line bg-white p-4 transition hover:-translate-y-1 hover:border-signal dark:border-neutral-800 dark:bg-neutral-900"
     >
-      <div className="project-mockup" aria-hidden="true">
-        <div className="flex items-center justify-between border-b border-line pb-3 dark:border-neutral-800">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">{project.number}</span>
-          <span className="h-2 w-16 bg-ink dark:bg-neutral-100" />
+      {image ? (
+        <div className="project-media">
+          <Image
+            src={assetSrc(image.src)}
+            alt={image.alt}
+            width={1200}
+            height={800}
+            className={cn("project-media-image", image.fit === "contain" && "object-contain p-6")}
+          />
         </div>
-        <div className="mt-5 grid gap-2">
-          <span className="h-3 w-10/12 bg-ink/85 dark:bg-neutral-100/85" />
-          <span className="h-3 w-7/12 bg-muted/45 dark:bg-neutral-500" />
-          <span className="h-3 w-9/12 bg-muted/25 dark:bg-neutral-700" />
+      ) : (
+        <div className="project-mockup" aria-hidden="true">
+          <div className="flex items-center justify-between border-b border-line pb-3 dark:border-neutral-800">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-signal">{project.number}</span>
+            <span className="h-2 w-16 bg-ink dark:bg-neutral-100" />
+          </div>
+          <div className="mt-5 grid gap-2">
+            <span className="h-3 w-10/12 bg-ink/85 dark:bg-neutral-100/85" />
+            <span className="h-3 w-7/12 bg-muted/45 dark:bg-neutral-500" />
+            <span className="h-3 w-9/12 bg-muted/25 dark:bg-neutral-700" />
+          </div>
+          <div className="mt-8 flex items-end gap-2">
+            {[46, 72, 58, 86, 64].map((height, barIndex) => (
+              <span
+                key={`${project.title}-${barIndex}`}
+                className={cn("w-full bg-signal", barIndex % 2 && "bg-olive dark:bg-neutral-500")}
+                style={{ height }}
+              />
+            ))}
+          </div>
         </div>
-        <div className="mt-8 flex items-end gap-2">
-          {[46, 72, 58, 86, 64].map((height, barIndex) => (
-            <span
-              key={`${project.title}-${barIndex}`}
-              className={cn("w-full bg-signal", barIndex % 2 && "bg-olive dark:bg-neutral-500")}
-              style={{ height }}
-            />
-          ))}
-        </div>
-      </div>
+      )}
 
       <div className="pt-5">
         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-signal">{project.category}</p>
@@ -659,6 +688,9 @@ function ProjectCard({ index, project }: { index: number; project: (typeof proje
 }
 
 function ExperienceItem({ index, item }: { index: number; item: (typeof experience)[number] }) {
+  const image = "image" in item ? item.image : undefined;
+  const certificate = "certificate" in item ? item.certificate : undefined;
+
   return (
     <motion.article
       {...fadeIn}
@@ -672,6 +704,32 @@ function ExperienceItem({ index, item }: { index: number; item: (typeof experien
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-signal">{item.company}</p>
         <h3 className="mt-2 text-2xl font-semibold">{item.role}</h3>
+        {image || certificate ? (
+          <div className="experience-evidence-box">
+            {image ? (
+              <div className="experience-media-item">
+                <Image
+                  src={assetSrc(image.src)}
+                  alt={image.alt}
+                  width={1000}
+                  height={1000}
+                  className="experience-media-image"
+                />
+              </div>
+            ) : null}
+            {certificate ? (
+              <div className="experience-media-item certificate-media-item">
+                <Image
+                  src={assetSrc(certificate.src)}
+                  alt={certificate.alt}
+                  width={960}
+                  height={1280}
+                  className="experience-media-image"
+                />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
         <p className="mt-4 max-w-3xl leading-7 text-muted dark:text-neutral-400">{item.summary}</p>
         <ul className="mt-5 grid gap-3">
           {item.points.map((point) => (

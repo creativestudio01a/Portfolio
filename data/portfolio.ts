@@ -12,6 +12,10 @@ import {
 export const profile = {
   name: "Pyae Zaw",
   title: "Content Writer / AI Content Creator / Digital Marketer",
+  image: {
+    src: "/assets/pyae-zaw-profile.png",
+    alt: "Pyae Zaw profile photo"
+  },
   tagline: "Creative content, smart strategy, reliable remote support.",
   location: "Mandalay, Myanmar",
   email: "pyaezaw203@gmail.com",
@@ -77,10 +81,16 @@ export const services = [
 export const projects = [
   {
     number: "01",
-    title: "Tech Review Content",
-    category: "Content Writing / Tech Media",
-    description: "Smartphone and gadget review content focused on helping audiences make clearer buying decisions.",
-    skills: ["Review writing", "Research", "Social content"]
+    title: "Circuit Media Tech Review Page",
+    category: "Tech Review / Circuit Media",
+    description:
+      "Smartphone and gadget review content for Circuit Media, focused on real context and smarter tech choices.",
+    skills: ["Review writing", "Research", "Community content"],
+    image: {
+      src: "/assets/circuit-media.png",
+      alt: "Circuit Media logo",
+      fit: "contain"
+    }
   },
   {
     number: "02",
@@ -91,10 +101,15 @@ export const projects = [
   },
   {
     number: "03",
-    title: "AI Video Content",
-    category: "AI Content Creation",
+    title: "AI Video Creation",
+    category: "SkillBridge AI",
     description: "AI-supported video concepts, scriptwriting, editing support, and creative production workflows.",
-    skills: ["ChatGPT", "CapCut", "AI visuals"]
+    skills: ["ChatGPT", "CapCut", "AI visuals"],
+    image: {
+      src: "/assets/skillbridge-ai.png",
+      alt: "SkillBridge AI logo",
+      fit: "contain"
+    }
   },
   {
     number: "04",
@@ -106,16 +121,21 @@ export const projects = [
   {
     number: "05",
     title: "Digital Marketing Content",
-    category: "Business Marketing",
-    description: "Promotional content designed to improve awareness, trust, and audience engagement for brands.",
-    skills: ["Marketing copy", "Brand message", "Canva"]
+    category: "DigitalMarketing.mm",
+    description: "Promotional content for DigitalMarketing.mm designed to improve awareness, trust, and engagement.",
+    skills: ["Marketing copy", "Brand message", "Canva"],
+    image: {
+      src: "/assets/digitalmarketing-mm.png",
+      alt: "DigitalMarketing.mm logo",
+      fit: "contain"
+    }
   }
 ] as const;
 
 export const experience = [
   {
     role: "Content Writer",
-    company: "Own Page / JOY Home / DigitalMarketing.mm",
+    company: "Circuit Media / JOY Home / DigitalMarketing.mm",
     period: "2024 - Present",
     label: "2+ years",
     summary: "Created social media content, captions, product review ideas, and business marketing messages.",
@@ -127,15 +147,24 @@ export const experience = [
   },
   {
     role: "English Teacher",
-    company: "SpeakEasy Institute",
+    company: "Speakeasy Language Centre",
     period: "March 2025 - April 2026",
-    label: "13 months",
-    summary: "Delivered clear English lessons and learning materials with a professional communication style.",
+    label: "Advanced C1",
+    summary:
+      "Delivered clear English lessons and learning materials with a professional communication style, supported by Duolingo English Test Advanced CEFR C1 results.",
     points: [
       "Supported student learning, confidence, and communication skills.",
       "Prepared educational content and lesson materials.",
       "Maintained a reliable, friendly, and structured teaching approach."
-    ]
+    ],
+    image: {
+      src: "/assets/speakeasy-language-centre.png",
+      alt: "Speakeasy Language Centre logo"
+    },
+    certificate: {
+      src: "/assets/duolingo-certificate.png",
+      alt: "Duolingo English Test certificate showing Advanced CEFR C1 score"
+    }
   },
   {
     role: "AI Content Creator",
@@ -147,7 +176,11 @@ export const experience = [
       "Used AI tools for content research, writing, visuals, and creative production.",
       "Wrote video scripts and creative concepts for short-form content.",
       "Supported editing and production workflows for digital channels."
-    ]
+    ],
+    image: {
+      src: "/assets/skillbridge-ai.png",
+      alt: "SkillBridge AI logo"
+    }
   }
 ] as const;
 
