@@ -80,7 +80,7 @@ export const services = [
 export const projects = [
   {
     number: "01",
-    title: "Circuit Media Tech Review Page",
+    title: "Tech Review Page",
     category: "Tech Review / Circuit Media",
     description:
       "Smartphone and gadget review content for Circuit Media, focused on real context and smarter tech choices.",
@@ -105,7 +105,7 @@ export const projects = [
   },
   {
     number: "03",
-    title: "English Learning Content",
+    title: "English Teacher",
     category: "Speakeasy Language Centre",
     description: "Learning materials and practical English content shaped by C1-level teaching experience.",
     skills: ["Teaching", "Lesson content", "Communication"],
