@@ -274,8 +274,40 @@ img {
     @apply text-neutral-600;
   }
 
+  .showcase-section {
+    scroll-margin-top: 4rem;
+  }
+
+  .showcase-stack {
+    @apply grid gap-12;
+  }
+
+  .showcase-block {
+    @apply grid gap-6;
+  }
+
+  .showcase-block + .showcase-block {
+    @apply border-t border-neutral-200 pt-10;
+  }
+
+  .showcase-subhead {
+    @apply flex flex-col gap-2 border-l-4 border-[#111111] pl-4 sm:flex-row sm:items-end sm:justify-between;
+  }
+
+  .showcase-subhead p {
+    @apply text-xs font-black uppercase tracking-normal text-neutral-500;
+  }
+
+  .showcase-subhead h3 {
+    @apply max-w-3xl text-2xl font-black leading-tight sm:text-3xl;
+  }
+
+  .experience-anchor {
+    scroll-margin-top: 5rem;
+  }
+
   .portfolio-grid {
-    @apply grid gap-px border border-[#111111] bg-[#111111] md:grid-cols-2 xl:grid-cols-3;
+    @apply grid gap-px border border-[#111111] bg-[#111111] md:grid-cols-2 xl:grid-cols-4;
   }
 
   .project-card {
@@ -343,10 +375,6 @@ img {
   .project-copy small,
   .skill-panel small {
     @apply inline-flex border border-[#111111] px-3 py-1.5 text-xs font-black uppercase tracking-normal;
-  }
-
-  .experience-section {
-    @apply bg-[#f5f5f5];
   }
 
   .experience-list {

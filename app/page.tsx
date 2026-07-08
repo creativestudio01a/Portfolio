@@ -217,31 +217,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="section-shell">
+      <section id="projects" className="section-shell showcase-section">
         <SectionIntro
-          kicker="Portfolio"
-          title="Selected visual proof and creative work."
-          text="A compact showcase of writing, social content, AI creation, teaching materials, and digital marketing work."
+          kicker="Experience Showcase"
+          title="Proof, projects, and role experience in one place."
+          text="A combined showcase of visual proof, content work, AI production, teaching evidence, and hands-on experience."
         />
 
-        <div className="portfolio-grid">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
-          ))}
-        </div>
-      </section>
+        <div className="showcase-stack">
+          <div className="showcase-block">
+            <div className="showcase-subhead">
+              <p>Visual proof</p>
+              <h3>Selected creative work</h3>
+            </div>
+            <div className="portfolio-grid">
+              {projects.map((project, index) => (
+                <ProjectCard key={project.title} project={project} index={index} />
+              ))}
+            </div>
+          </div>
 
-      <section id="experience" className="section-shell experience-section">
-        <SectionIntro
-          kicker="Experience"
-          title="Content, teaching, marketing, and AI production."
-          text="Hands-on work across Circuit Media, DigitalMarketing.mm, Speakeasy Language Centre, and SkillBridge AI."
-        />
-
-        <div className="experience-list">
-          {experience.map((item, index) => (
-            <ExperienceItem key={`${item.role}-${item.company}`} item={item} index={index} />
-          ))}
+          <div id="experience" className="showcase-block experience-anchor">
+            <div className="showcase-subhead">
+              <p>Experience</p>
+              <h3>Content, teaching, marketing, and AI production</h3>
+            </div>
+            <div className="experience-list">
+              {experience.map((item, index) => (
+                <ExperienceItem key={`${item.role}-${item.company}`} item={item} index={index} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
