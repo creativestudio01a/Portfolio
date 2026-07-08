@@ -116,10 +116,11 @@ export default function Home() {
         <div className="split-hero-inner">
           <motion.div {...fadeIn} className="identity-panel identity-panel-left">
             <p className="identity-eyebrow">content side</p>
-            <h1>creator</h1>
+            <h1>Creator</h1>
             <p>
               Content writing, social media stories, brand messaging, and tech review copy shaped for audiences that
-              need clarity before action.
+              need clarity before action. AI-assisted video concepts, digital marketing workflows, English teaching
+              materials, and practical remote support delivered with structure.
             </p>
             <a href="#projects" className="identity-link">
               portfolio
@@ -149,11 +150,16 @@ export default function Home() {
 
           <motion.div {...fadeIn} transition={{ ...fadeIn.transition, delay: 0.16 }} className="identity-panel identity-panel-right">
             <p className="identity-eyebrow">system side</p>
-            <h1>&lt;builder&gt;</h1>
+            <h1>&lt;Builder&gt;</h1>
             <p>
-              AI-assisted video concepts, digital marketing workflows, English teaching materials, and practical remote
-              support delivered with structure.
+              Developer profile for practical web projects, landing pages, portfolio systems, and front-end workflows
+              built with clean structure and responsive behavior.
             </p>
+            <div className="builder-stack" aria-label="Developer skills">
+              {["HTML", "CSS", "JavaScript", "PHP", "React", "Next.js", "Tailwind", "Frameworks"].map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
             <a href="#contact" className="identity-link">
               hire me
               <ArrowRight size={17} />

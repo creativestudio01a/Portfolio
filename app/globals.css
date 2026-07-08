@@ -17,6 +17,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: #ffffff;
   color: #111111;
   font-family: Arial, Helvetica, sans-serif;
@@ -30,6 +31,7 @@ body {
 
 img {
   display: block;
+  max-width: 100%;
 }
 
 @layer components {
@@ -89,7 +91,7 @@ img {
   }
 
   .identity-panel {
-    @apply mx-auto max-w-sm text-center lg:mx-0;
+    @apply mx-auto max-w-md text-center lg:mx-0;
   }
 
   .identity-panel-left {
@@ -105,8 +107,8 @@ img {
   }
 
   .identity-panel h1 {
-    @apply text-5xl font-black leading-none tracking-normal text-[#111111] sm:text-6xl md:text-7xl;
-    overflow-wrap: anywhere;
+    @apply text-4xl font-black leading-none tracking-normal text-[#111111] sm:text-5xl md:text-6xl xl:text-7xl;
+    overflow-wrap: normal;
   }
 
   .identity-panel p:not(.identity-eyebrow) {
@@ -115,6 +117,14 @@ img {
 
   .identity-link {
     @apply mt-6 inline-flex items-center gap-2 border-b-2 border-[#111111] pb-1 text-sm font-black uppercase tracking-normal transition hover:text-neutral-500;
+  }
+
+  .builder-stack {
+    @apply mt-5 flex max-w-full flex-wrap justify-center gap-2 overflow-hidden lg:justify-start;
+  }
+
+  .builder-stack span {
+    @apply min-w-0 border border-[#111111] px-3 py-1.5 text-xs font-black uppercase tracking-normal text-[#111111];
   }
 
   .portrait-stage {
@@ -146,6 +156,8 @@ img {
 
   .hero-person-photo {
     @apply relative z-10 mx-auto h-[25rem] w-full object-contain object-bottom sm:h-[35rem] lg:h-[38rem];
+    max-width: 100%;
+    width: 100%;
   }
 
   .portrait-caption {
@@ -182,10 +194,11 @@ img {
 
   .toolkit-strip {
     @apply overflow-hidden border-y border-[#111111] bg-[#111111] py-4 text-white;
+    max-width: 100vw;
   }
 
   .toolkit-track {
-    @apply flex min-w-max animate-marquee items-center gap-8;
+    @apply flex w-max animate-marquee items-center gap-8;
   }
 
   .toolkit-track span {
@@ -321,6 +334,8 @@ img {
 
   .project-media-image {
     @apply h-full w-full object-cover;
+    max-width: 100%;
+    width: 100%;
   }
 
   .project-media-contain {
@@ -432,6 +447,8 @@ img {
 
   .experience-media-image {
     @apply h-full w-full object-contain p-2 sm:p-3;
+    max-width: 100%;
+    width: 100%;
   }
 
   .skill-grid {
