@@ -45,6 +45,8 @@ export const heroMetrics = [
   { value: "C1", label: "English level", detail: "teaching and communication" }
 ] as const;
 
+export const developerSkills = ["HTML", "CSS", "JavaScript", "PHP", "React", "Next.js", "Tailwind", "Frameworks"] as const;
+
 export const profileCards = [
   { label: "Location", value: "Mandalay, Myanmar", icon: MapPin },
   { label: "Work Preference", value: "Remote only", icon: BriefcaseBusiness },
