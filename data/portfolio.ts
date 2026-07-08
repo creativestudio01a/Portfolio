@@ -94,13 +94,6 @@ export const projects = [
   },
   {
     number: "02",
-    title: "Social Media Content Campaign",
-    category: "Social Media Management",
-    description: "Strategic captions, post ideas, visual directions, and message systems for online business pages.",
-    skills: ["Captions", "Planning", "Community content"]
-  },
-  {
-    number: "03",
     title: "AI Video Creation",
     category: "SkillBridge AI",
     description: "AI-supported video concepts, scriptwriting, editing support, and creative production workflows.",
@@ -112,14 +105,19 @@ export const projects = [
     }
   },
   {
-    number: "04",
+    number: "03",
     title: "English Learning Content",
-    category: "Education",
+    category: "Speakeasy Language Centre",
     description: "Learning materials and practical English content shaped by C1-level teaching experience.",
-    skills: ["Teaching", "Lesson content", "Communication"]
+    skills: ["Teaching", "Lesson content", "Communication"],
+    image: {
+      src: "/assets/speakeasy-language-centre.png",
+      alt: "Speakeasy Language Centre logo",
+      fit: "contain"
+    }
   },
   {
-    number: "05",
+    number: "04",
     title: "Digital Marketing Content",
     category: "DigitalMarketing.mm",
     description: "Promotional content for DigitalMarketing.mm designed to improve awareness, trust, and engagement.",
@@ -157,10 +155,6 @@ export const experience = [
       "Prepared educational content and lesson materials.",
       "Maintained a reliable, friendly, and structured teaching approach."
     ],
-    image: {
-      src: "/assets/speakeasy-language-centre.png",
-      alt: "Speakeasy Language Centre logo"
-    },
     certificate: {
       src: "/assets/duolingo-certificate.png",
       alt: "Duolingo English Test certificate showing Advanced CEFR C1 score"
@@ -176,11 +170,7 @@ export const experience = [
       "Used AI tools for content research, writing, visuals, and creative production.",
       "Wrote video scripts and creative concepts for short-form content.",
       "Supported editing and production workflows for digital channels."
-    ],
-    image: {
-      src: "/assets/skillbridge-ai.png",
-      alt: "SkillBridge AI logo"
-    }
+    ]
   }
 ] as const;
 
