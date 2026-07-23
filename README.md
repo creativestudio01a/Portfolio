@@ -57,5 +57,5 @@ GITHUB_PAGES=true npm run build
 Pushing to `main` runs the GitHub Actions workflow and publishes the static export to:
 
 ```text
-https://creativestudio01a.github.io/Portfolio/
+https://vick01a.github.io/Portfolio/
 ```
